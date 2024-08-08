@@ -8,11 +8,10 @@ import "./css/verticalLineRulerStyle.css";
 
 function CodeMirror() {
   const editorRef = useRef(null);
+  const languageCompartment = useRef(new Compartment()).current;
 
   useEffect(() => {
     if (editorRef.current) {
-      let languageCompartment = new Compartment();
-
       let state = EditorState.create({
         extensions: [
           basicSetup,
@@ -29,7 +28,7 @@ function CodeMirror() {
         view.destroy();
       };
     }
-  }, []);
+  }, [editorRef, languageCompartment]);
 
   return (
     <div className="absolute top-10 right-10">
@@ -43,3 +42,8 @@ function CodeMirror() {
 }
 
 export default CodeMirror;
+
+let a = 3;
+function abc() {
+  let b = 3;
+}

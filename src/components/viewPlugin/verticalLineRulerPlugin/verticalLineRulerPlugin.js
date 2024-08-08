@@ -19,6 +19,7 @@ export const verticalLingRulerPlugin = ViewPlugin.fromClass(
 
       if (update.geometryChanged) {
         const LineNums = doc.lines;
+
         let flag = false; // line을 그릴지 말지 판단하는 flag
         let startFlag = false; // flag가 시작된 첫번 째 줄은 line을 그리지 않기 위해 사용된 flag
         let leftSizeArr = Array(0); // line의 수평 중첩을 저장해주는 stack (앞 공백 stack 저장)
@@ -113,7 +114,7 @@ export const verticalLingRulerPlugin = ViewPlugin.fromClass(
           continue;
         }
         // 현재 줄이 '{', '}' 다 포함하고 있으면 각 상태 업데이트 없이 바로 draw 단계 진입
-        if (lineText.includes("{") || lineText.includes("}")) {
+        if (lineText.includes("{") && lineText.includes("}")) {
           if (flag || leftSizeArr.length !== 0) {
             for (let i = 0; i < leftSizeArr.length; i++) {
               if (startFlag === true) {
