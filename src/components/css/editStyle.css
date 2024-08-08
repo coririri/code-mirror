@@ -1,0 +1,28 @@
+/* 에디터에 포커스를 줬을 때 outline이 생기던 것을 삭제 */
+.cm-focused {
+  outline: none !important;
+}
+
+/* 각 line의 포커스 됐을 때 css 변경 */
+.cm-activeLine {
+  background-color: transparent !important;
+  outline: 2px solid #cecece;
+}
+
+/* gutter 전체 컨테이너 css 수정 */
+.cm-gutters {
+  background-color: transparent !important;
+  border-right: none !important;
+}
+
+/* gutter line css 수정 */
+.cm-lineNumbers .cm-gutterElement {
+  padding: 0 15px 0 50px !important;
+  color: #237893;
+}
+
+/* gutter line 포커스 됐을 때 css 수정 */
+.cm-activeLineGutter {
+  background-color: transparent !important;
+  color: #0b216f !important;
+}
